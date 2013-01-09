@@ -1,0 +1,32 @@
+{
+    "name": "grunt-zipstream",
+    "description": "Create ZIP files with zipstream.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/Two-Screen/grunt-zipstream",
+    "author": {
+        "name": "Stéphan Kochen",
+        "email": "stephan@angrybytes.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Two-Screen/grunt-zipstream.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Two-Screen/grunt-zipstream/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/Two-Screen/grunt-zipstream/blob/master/LICENSE-MIT"
+        }
+    ],
+    "main": "grunt.js",
+    "engines": { "node": ">=0.6" },
+    "dependencies": {
+        "zipstream": "0.2"
+    },
+    "devDependencies": {
+        "grunt": "~0.3.17"
+    },
+    "keywords": [ "gruntplugin", "zip", "zipstream" ]
+}
