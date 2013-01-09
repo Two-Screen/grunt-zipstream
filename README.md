@@ -51,5 +51,5 @@ will be the `level` option controlling compression level.
 
 ## License
 
-Copyright (c) 2013 Stéphan Kochen
-Licensed under the MIT license.
+    Copyright (c) 2013 Stéphan Kochen
+    Licensed under the MIT license.
