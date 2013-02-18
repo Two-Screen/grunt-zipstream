@@ -14,12 +14,12 @@ var zipstream = require('zipstream');
 module.exports = function(grunt) {
 
     grunt.registerMultiTask('zip', 'Create a ZIP file.', function() {
-        var dest = this.file.dest;
-        var files = grunt.file.expandFiles(this.file.src);
+        var dest = this.data.file.dest;
+        var files = grunt.file.expand({filter: "isFile"}, this.data.file.src);
         var options = this.data;
 
         var done = this.async();
-        grunt.helper('zipstream', dest, files, options, function(err, written) {
+        grunt.makeZipstream(dest, files, options, function(err, written) {
             if (!err) {
                 written = String(written);
                 grunt.log.writeln("File " + dest.cyan + " created.");
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
         });
     });
 
-    grunt.registerHelper('zipstream', function(dest, files, options, callback) {
+    grunt.makeZipstream = function(dest, files, options, callback) {
         var nowrite = grunt.option('no-write');
         if (typeof(options) === 'function') {
             callback = options;
@@ -102,6 +102,6 @@ module.exports = function(grunt) {
                 });
             }
         ], callbackOnce);
-    });
+    };
 
 };
