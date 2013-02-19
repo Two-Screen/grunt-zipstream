@@ -27,7 +27,7 @@
     },
     "devDependencies": {
         "grunt": "~0.4.0",
-        "grunt-contrib-jshit": ""
+        "grunt-contrib-jshint": "*"
     },
     "keywords": [ "gruntplugin", "zip", "zipstream" ]
 }
