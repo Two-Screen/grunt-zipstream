@@ -20,14 +20,17 @@
             "url": "https://github.com/Two-Screen/grunt-zipstream/blob/master/LICENSE-MIT"
         }
     ],
-    "main": "grunt.js",
-    "engines": { "node": ">=0.6" },
+    "main": "Gruntfile.js",
+    "engines": { "node": ">=0.8" },
     "dependencies": {
         "zipstream": "0.2"
     },
     "devDependencies": {
-        "grunt": "~0.4.0",
-        "grunt-contrib-jshint": "*"
+        "grunt-contrib-jshint": "~0.1.1",
+        "grunt": "~0.4.0"
+    },
+    "peerDependencies": {
+        "grunt": "~0.4.0"
     },
     "keywords": [ "gruntplugin", "zip", "zipstream" ]
 }
