@@ -1,7 +1,7 @@
 {
     "name": "grunt-zipstream",
     "description": "Create ZIP files from grunt with zipstream.",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "homepage": "https://github.com/Two-Screen/grunt-zipstream",
     "author": "Stéphan Kochen <stephan@angrybytes.com>",
     "contributors": [
