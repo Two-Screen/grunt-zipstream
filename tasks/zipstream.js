@@ -43,6 +43,7 @@ module.exports = function(grunt) {
                 }
             })
             .flatten(src)
+            .unique()
             .value();
 
             // Zip each set of files.
