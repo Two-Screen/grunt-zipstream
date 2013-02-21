@@ -1,55 +1,87 @@
 # grunt-zipstream
 
-Create ZIP files with zipstream.
+Create ZIP files with [zipstream].
+
+ [zipstream]: https://github.com/wellawaretech/node-zipstream
 
 ## Getting Started
 
-Install this grunt plugin next to your project's [grunt.js gruntfile]
-with: `npm install grunt-zipstream`
+This plugin requires Grunt `0.4.0`
 
-Then add this line to your project's `grunt.js` gruntfile:
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out
+the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains
+how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as
+install and use Grunt plugins. Once you're familiar with that process, you may
+install this plugin with this command:
 
-    grunt.loadNpmTasks('grunt-zipstream');
+```shell
+npm install grunt-zipstream --save-dev
+```
 
- [grunt.js gruntfile]: https://github.com/gruntjs/grunt/blob/0.3-stable/docs/getting_started.md
+One the plugin has been installed, it may be enabled inside your Gruntfile with
+this line of JavaScript:
 
-## Documentation
+```js
+grunt.loadNpmTasks('grunt-zipstream');
+```
 
-A simple multitask called `zip` is defined. Configure it like so:
+## The "zip" task
 
-    grunt.initConfig({
-        zip: {
-            foobar: {
-                src: [
-                    'static/images/**/*''
-                    'static/index.html',
-                    'README.md'
-                ],
-                dest: 'package.zip',
+### Overview
+In your project's Gruntfile, add a section named `zip` to the data object
+passed into `grunt.initConfig()`.
 
-                /* optional */
-                base: 'some/path',
-                subdir: 'some/path',
-                zlib: {
-                    level: 1
-                }
-            }
-        },
-        /* optional */
-        zlib: { /* ... */ }
-    });
+```js
+grunt.initConfig({
+  zip: {
+    your_target: {
+      src: [
+        'static/images/**/*',
+        'static/index.html',
+        'README.md'
+      ],
+      dest: 'package.zip',
 
-The `base` option can be set to a base path that will be stripped off the
-filenames in the zip file. The `subdir` option allows you to add a custom
-prefix to filenames in the zip file, (usually a single directory name.)
+      /* optional */
+      options: {
+        base: 'some/path/',
+        subdir: 'mypackage/',
+        zlib: {
+          level: 1
+        }
+      }
+    }
+  }
+});
+```
 
-Per task, or globally, you can set `zlib` to options for the Node.js `zlib`
-module. See [the `zlib` documentation] for specifics, but the most useful
-will be the `level` option controlling compression level.
+### Options
+
+#### options.base
+Type: `String`
+
+A base path that will be stripped off the start of filenames in the zip file.
+If you're stripping directories off a path, you usually want to have this end
+with a slash. Because this is a simple string operation, you would otherwise
+end up with absolute paths in the zip file.
+
+#### options.subdir
+Type: `String`
+
+A base path that will be added to the start of filenames in the zip file.
+Usually, this will be the name of the directory you want the zip file to unpack
+to. Note that trailing slashes are important here too, as with `options.base`.
+
+#### options.zlib
+Type: `Object`
+
+Any additional options for the Node.js `zlib` module. See
+[the `zlib` documentation] for specifics, but the most useful will be the
+`level` option controlling compression level.
 
  [the `zlib` documentation]: http://nodejs.org/api/zlib.html#zlib_options
 
 ## License
 
-    Copyright (c) 2013 Stéphan Kochen
+    Copyright (c) 2013 Stéphan Kochen
     Licensed under the MIT license.
