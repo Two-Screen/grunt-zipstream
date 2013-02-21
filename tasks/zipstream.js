@@ -17,10 +17,11 @@ module.exports = function(grunt) {
         // Iterate over all specified file groups.
         var done = this.async();
         grunt.util.async.forEach(this.files, function(f, cb) {
+            var src = f.src;
             var dest = f.dest;
 
             // Warn on and remove invalid source files (if nonull was set).
-            var src = f.src.filter(function(file) {
+            src = f.src.filter(function(file) {
                 if (!grunt.file.exists(file)) {
                     grunt.log.warn('Source file "' + file + '" not found.');
                     return false;
@@ -28,6 +29,21 @@ module.exports = function(grunt) {
                     return true;
                 }
             });
+
+            // Recurse directories.
+            src = src.map(function(file) {
+                if (grunt.file.isDir(file)) {
+                    var files = [];
+                    grunt.file.recurse(file, function(file) {
+                        files.push(file);
+                    });
+                    return files;
+                }
+                else {
+                    return file;
+                }
+            });
+            src = grunt.util._.flatten(src);
 
             // Zip each set of files.
             ziplib.createStream(dest, src, options, function(err, written) {
