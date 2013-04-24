@@ -1,3 +1,9 @@
+# This module no longer works in Node 0.10. Please use [grunt-contrib-compress] instead.
+
+ [grunt-contrib-compress]: https://github.com/gruntjs/grunt-contrib-compress
+ 
+---
+
 # grunt-zipstream
 
 Create ZIP files with [zipstream].
