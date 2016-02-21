@@ -21,7 +21,9 @@
         }
     ],
     "main": "Gruntfile.js",
-    "engines": { "node": ">=0.8" },
+    "engines": {
+        "node": ">=0.8"
+    },
     "dependencies": {
         "zipstream": "0.2"
     },
@@ -30,7 +32,11 @@
         "grunt": "~0.4.0"
     },
     "peerDependencies": {
-        "grunt": "~0.4.0"
+        "grunt": ">=0.4.0"
     },
-    "keywords": [ "gruntplugin", "zip", "zipstream" ]
+    "keywords": [
+        "gruntplugin",
+        "zip",
+        "zipstream"
+    ]
 }
